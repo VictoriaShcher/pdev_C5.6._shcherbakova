@@ -28,9 +28,7 @@ class RateConverter:
         except ValueError:
             raise APIException(f'Не удалось обработать количество {amount}')
 
-        r = requests.get(
-            f'https://api.apilayer.com/exchangerates_data/convert?from={quote_ticker}&to={base_ticker}&amount={amount}')
-        api_key = "ogTweiKRVPwUSEjRjCREmjkTKWxg7TlU"
+        r = requests.get(f'https://min-api.cryptocompare.com/data/price?fsym={quote_ticker}&tsyms={base_ticker}')
         total_base = json.loads(r.content)[keys[base]]
 
         return total_base
