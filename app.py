@@ -22,7 +22,7 @@ def values(message: telebot.types.Message):
     bot.reply_to(message, text)
 
 
-@bot.message_handler(commands=['text', ])
+@bot.message_handler(commands=['text'])
 def convert(message: telebot.types.Message):
     try:
         values = message.text.split(' ')
